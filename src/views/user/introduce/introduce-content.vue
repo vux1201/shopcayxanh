@@ -1,0 +1,291 @@
+<template>
+  <div class="bg-dark">
+    <div class="main-block" style="padding-top: 20px">
+      <div class="content-page detail-news">
+        <h1>Giới thiệu Vườn Cây Việt</h1>
+
+        <span id="vnContent1__ctl0_lblHtmlInfo" class="HotNameDesc"
+          ><p style="text-align: center">
+            <img
+              title="Logo Vườn Cây Việt"
+              src="../../../assets/img/head/logo.png"
+              alt="logo-vuon-cay-viet-600.jpg"
+              width="300"
+              height="300"
+            />
+          </p>
+          <p style="text-align: center">
+            <span style="font-size: medium"
+              ><strong>Cho trải nghiệm “không chỉ là cây cảnh”</strong></span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Cây cảnh, từ trước đến nay vẫn được xem như vật trang trí, làm
+              đẹp không gian sống cho con người. Cây để bàn, bonsai, terrarium,
+              cây thuỷ sinh hoặc cây treo chậu… mỗi loại mỗi cây đều có ý nghĩa
+              và vẻ đẹp riêng của mình, góp phần đáng kể làm cho cuộc sống chúng
+              ta thêm sinh động, trở nên đáng yêu và thanh bình hơn.</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Nhưng tại <strong>Vườn Cây Việt</strong>, chúng tôi muốn mang đến
+              cho bạn không chỉ là cây cảnh, chúng tôi muốn mang đến cho bạn
+              những trải nghiệm tuyệt vời mà không nơi nào có. Vườn Cây Việt
+              hiểu rằng đối với cây cảnh, bạn sẽ muốn:</span
+            >
+          </p>
+          <ul>
+            <li>
+              <span style="color: #000000"
+                >Hiểu
+                <span style="text-decoration: underline">ý nghĩa</span> (một
+                cách sâu sắc, đúng đắn và vững chắc) về loại cây mà mình
+                chọn</span
+              >
+            </li>
+            <li>
+              <span style="color: #000000"
+                >Hiểu
+                <span style="text-decoration: underline">phong thuỷ</span>
+                chính xác của cây để mang lại sự may mắn và thành công cho công
+                việc, cuộc sống</span
+              >
+            </li>
+            <li>
+              <span style="color: #000000"
+                >Hiểu
+                <span style="text-decoration: underline">câu chuyện</span> tạo
+                nên ý nghĩa đằng sau từng loại cây</span
+              >
+            </li>
+            <li>
+              <span style="color: #000000"
+                >Hiểu
+                <span style="text-decoration: underline">cách chăm sóc</span>
+                để cây luôn trong trạng thái tốt nhất</span
+              >
+            </li>
+            <li>
+              <span style="color: #000000"
+                ><span style="text-decoration: underline">Lựa chọn</span> loại
+                chậu và phụ kiện chăm sóc cây sao cho phù hợp với nhu cầu</span
+              >
+            </li>
+          </ul>
+          <p>
+            <span style="color: #000000"
+              >Và một điều có thể bạn chưa để ý… là thông qua loại cây bạn chọn,
+              bạn sẽ thể hiện được <em>cá tính và những gì độc đáo</em> của bản
+              thân mà không cần nói ra mà người khác đã tự hiểu rồi. Bạn làm
+              điều đó bằng cách nào?</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Rất khó, bởi không phải ai, dù thích chơi cây và yêu cây, đều có
+              thể hiểu rõ từng ấy vấn đề. Nhưng không sao!</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Hãy một lần đến với <strong>Vườn Cây Việt</strong>, chúng tôi
+              không hứa gì ngoài việc mang đến cho bạn các sản phẩm cây cảnh và
+              dịch vụ chất lượng cao nhất thông qua quy trình bán hàng, giao
+              hàng, chăm sóc khách hàng, chăm sóc sản phẩm tiêu chuẩn… VỚI GIÁ
+              CẢ PHẢI CHĂNG VÀ PHÙ HỢP TÚI TIỀN.</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Không chỉ là những chậu cây cảnh được chăm sóc tỉ mẩn và giao tận
+              tay khách hàng, bạn còn nhận được nhiều thông tin hữu ích về ý
+              nghĩa, cách chăm sóc và những câu chuyện thú vị của từng loại cây
+              mà bạn chưa biết đến, và đặc biệt không phải ai cũng có… là
+              <em>cơ sở khoa học</em> về đặc tính của từng loại cây. Tất cả ở
+              hình thức đẹp và độc đáo nhất để bạn có thể sử dụng lâu dài.</span
+            >
+          </p>
+          <h2>
+            <span style="color: #ff6600"
+              ><strong
+                ><span style="font-size: large">Sứ mệnh</span></strong
+              ></span
+            >
+          </h2>
+          <p>
+            <span style="color: #000000"
+              >Với ý nghĩa đó, <strong>Vườn Cây Việt</strong> đặt ra cho mình sứ
+              mệnh cung cấp các loại cây làm đẹp không gian sống và không chỉ
+              vậy, còn cung cấp thêm các giá trị tinh thần cho khách hàng, là
+              điểm đến cho mọi khách hàng có nhu cầu tìm mua những cây cảnh
+              trang trí đẹp, phù hợp cá tính, phong thuỷ, không gian sống và làm
+              việc.</span
+            >
+          </p>
+          <h2>
+            <span style="font-size: large; color: #ff6600"
+              ><strong>Tầm nhìn</strong></span
+            >
+          </h2>
+          <p>
+            <span style="color: #000000"
+              >Đến năm 2023, <strong>Vườn Cây Việt</strong> phấn đấu trở thành 1
+              trong 3 đơn vị dẫn đầu trong lĩnh vực cung cấp cây cảnh để bàn,
+              cây cảnh mini, bonsai, cây thuỷ sinh, terrarium.... tại Việt Nam,
+              đồng thời trở thành nhà cung cấp đa dạng các loại hình cây cảnh
+              phù hợp cho nhiều đối tượng khách hàng khác nhau với hệ thống đối
+              tác phân phối rộng khắp cả nước.</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Các sản phẩm của Vườn Cây Việt sẽ ngày càng hoàn thiện về mẫu mã,
+              tính đa dạng nhằm đáp ứng được nhu cầu khác nhau đến từ khách
+              hàng.</span
+            >
+          </p>
+          <h2>
+            <span style="color: #ff6600"
+              ><strong
+                ><span style="font-size: large">Giá trị cốt lõi</span></strong
+              ></span
+            >
+          </h2>
+          <p style="margin-left: 30px">
+            <span style="color: #000000"
+              ><em><span style="font-size: medium">•</span>&nbsp;Chất lượng</em
+              >: Tập trung vào chất lượng sản phẩm, cam kết chỉ đưa ra thị
+              trường các sản phẩm thực sự chất lượng.</span
+            >
+          </p>
+          <p style="margin-left: 30px">
+            <span style="color: #000000"
+              ><em><span style="font-size: medium">•</span>&nbsp;Chính trực</em
+              >: Không lừa dối khách hàng, luôn đảm bảo tư vấn cho khách hàng
+              một cách công tâm, khách quan nhất về sản phẩm.</span
+            >
+          </p>
+          <p style="margin-left: 30px">
+            <span style="color: #000000"
+              ><em
+                ><span style="font-size: medium">•</span>&nbsp;Sáng tạo, đổi
+                mới</em
+              >: Không ngừng quan sát, tìm hiểu và học hỏi, từ đó đưa ra các ý
+              tưởng, sản phẩm mới.</span
+            >
+          </p>
+          <p style="margin-left: 30px">
+            <span style="color: #000000"
+              ><em><span style="font-size: medium">•</span>&nbsp;Đồng đội</em>:
+              Luôn phối hợp tốt giữa các thành viên trong công ty, sẵn sàng chia
+              sẻ, góp ý, động viên và học hỏi lẫn nhau: “vì sự phát triển của
+              từng cá nhân, vì sự phát triển bền vững của công ty”.</span
+            >
+          </p>
+          <p>
+            <span style="color: #000000"
+              >Đừng dừng lại ở đây, hãy khám phá các sản phẩm tại
+              <span style="color: #0000ff"
+                ><a href="/"
+                  ><span style="color: #0000ff">Vuoncayviet.com</span></a
+                ></span
+              >&nbsp;ngay bây giờ!</span
+            >
+          </p></span
+        >
+        <div class="news-related">
+          <h4>Tin tức liên quan</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.bg-dark {
+  background: #eee;
+  max-width: 888px;
+  width: 73%;
+  float: left;
+  padding-left: 2%;
+}
+.content-page {
+  width: 100%;
+  float: left;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.detail-news {
+  width: 92%;
+  float: left;
+  line-height: 1.8;
+  font-size: 14px;
+  h1 {
+    font-size: 26px;
+    color: #ff6600;
+    padding-bottom: 5px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .day {
+    font-size: 12px;
+    color: #999;
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+  }
+  ul li {
+    list-style: inherit;
+    margin: auto;
+    padding-left: 30px;
+    list-style-position: inside;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+  }
+}
+.news-related {
+  width: 100%;
+  float: left;
+  margin: 20px 0;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6600;
+    margin-bottom: 15px;
+  }
+  ul li {
+    width: 100%;
+    float: left;
+    font-weight: 600;
+    padding: 5px 0;
+    font-size: 14px;
+    a:before {
+      content: "";
+      font-family: "FontAwesome";
+      margin-right: 5px;
+    }
+    a:hover {
+      color: #ff6600;
+    }
+  }
+}
+</style>
