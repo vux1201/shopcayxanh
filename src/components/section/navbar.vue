@@ -7,14 +7,14 @@
           <div id="cssmenu">
             <div id="menu-button">Menu</div>
             <ul>
+              <!-- Giới thiệu -->
               <li>
                 <router-link to="/introduce">Giới thiệu</router-link>
               </li>
-
+              <!-- Cây cảnh -->
               <li class="has-sub">
                 <span class="submenu-button"></span
                 ><a href="#" target="">Cây cảnh</a>
-
                 <ul>
                   <li>
                     <a href="/categoryView/1">Cây cảnh để bàn</a>
@@ -49,7 +49,7 @@
                   </li>
                 </ul>
               </li>
-
+              <!-- Chậu cảnh -->
               <li class="has-sub">
                 <span class="submenu-button"></span
                 ><a href="#" target="">Chậu cảnh</a>
@@ -84,7 +84,7 @@
                   </li>
                 </ul>
               </li>
-
+              <!-- Phụ kiện -->
               <li class="has-sub">
                 <span class="submenu-button"></span
                 ><a href="#" target="">Phụ kiện cây cảnh</a>
@@ -107,9 +107,9 @@
                   </li>
                 </ul>
               </li>
-
+              <!-- Dịch vụ  -->
               <li><a href="/service" target="">Dịch Vụ</a></li>
-
+              <!-- Tin túc  -->
               <li class="has-sub">
                 <span class="submenu-button"></span
                 ><a href="#" target="">Blog - Tin Tức</a>
@@ -122,7 +122,7 @@
                   <li><a href="/video-demo" target="">Video</a></li>
                 </ul>
               </li>
-
+              <!-- Hỗ trợ  -->
               <li class="has-sub">
                 <span class="submenu-button"></span
                 ><a href="#" target="">Hỗ trợ</a>
@@ -139,9 +139,9 @@
                   </li>
                 </ul>
               </li>
-
+              <!-- Liên hệ -->
               <li><a href="#" target="">Liên hệ</a></li>
-
+              <!-- Khuyến mãi  -->
               <li>
                 <a href="/promotion" target="">Khuyến mãi</a>
               </li>
@@ -484,42 +484,42 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  #cssmenu > ul > li > a {
-    font-size: 14px;
-  }
-}
-@media only screen and (max-width: 1009px) {
-  #cssmenu {
-    float: left;
-    z-index: 9999;
-    left: 0;
-    position: absolute;
-  }
-  #cssmenu > ul > li > a {
-    padding: 16px 8px;
-    min-height: auto;
-    background-image: none;
-    background: #fff;
-    color: #333;
-  }
-  #cssmenu > ul > li:hover > a {
-    background-image: none;
-  }
-  #cssmenu > ul > li.active > a {
-    color: #f68220;
-    background: #fff;
-  }
-  #cssmenu.small-screen ul {
-    width: 100%;
-    display: none;
-    background: #ccc;
-  }
-  #cssmenu.small-screen ul ul li a {
-    color: #333;
-  }
-  #cssmenu li:hover > ul {
-    background: #fff;
-  }
-}
+// @media only screen and (max-width: 1200px) {
+//   #cssmenu > ul > li > a {
+//     font-size: 14px;
+//   }
+// }
+// @media only screen and (max-width: 1009px) {
+//   #cssmenu {
+//     float: left;
+//     z-index: 9999;
+//     left: 0;
+//     position: absolute;
+//   }
+//   #cssmenu > ul > li > a {
+//     padding: 16px 8px;
+//     min-height: auto;
+//     background-image: none;
+//     background: #fff;
+//     color: #333;
+//   }
+//   #cssmenu > ul > li:hover > a {
+//     background-image: none;
+//   }
+//   #cssmenu > ul > li.active > a {
+//     color: #f68220;
+//     background: #fff;
+//   }
+//   #cssmenu.small-screen ul {
+//     width: 100%;
+//     display: none;
+//     background: #ccc;
+//   }
+//   #cssmenu.small-screen ul ul li a {
+//     color: #333;
+//   }
+//   #cssmenu li:hover > ul {
+//     background: #fff;
+//   }
+// }
 </style>

@@ -486,7 +486,7 @@
 </template>
 
 <script>
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 export default {
   data() {
     return;

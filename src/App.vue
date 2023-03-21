@@ -29,9 +29,9 @@ export default {
         }
       }
     },
-    onWheel() {
-      this.scroll();
-    },
+    // onWheel() {
+    //   this.scroll();
+    // },
   },
 };
 </script>

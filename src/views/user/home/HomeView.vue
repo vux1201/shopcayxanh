@@ -46,3 +46,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.sticky {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 30px;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  -moz-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+}
+.sticky .content {
+  padding-top: 60px;
+}
+</style>

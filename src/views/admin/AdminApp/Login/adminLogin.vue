@@ -1,39 +1,43 @@
 <template>
-  <div class="signin">
+  <div class="login">
     <div class="container">
-      <div>
+      <div class="content">
         <h3>Login Admin</h3>
         <br />
         <br />
-        <form role="form" @submit.prevent="login">
+        <form class="form-login" @submit.prevent="login">
           <ul>
             <li>
               <div class="input-group">
                 <input
                   class="form-control"
-                  placeholder="Username"
                   type="text"
                   name="username"
+                  placeholder=" "
                   v-model="email"
                 />
+                <label class="form-label">User name</label>
+                <i class="fa-solid fa-envelope"></i>
               </div>
               <span class="errMes">{{ errLogin1 }}</span>
             </li>
             <li>
-              <div>
+              <div class="input-group">
                 <input
                   class="form-control"
-                  placeholder="Password"
                   type="password"
                   name="password"
+                  placeholder=" "
                   v-model="password"
                 />
+                <label class="form-label">Password</label>
+                <i class="fa-solid fa-lock"></i>
               </div>
             </li>
           </ul>
 
           <span class="errMes">{{ errLogin2 }}</span>
-          <button class="login" type="submit" name="login">Login</button>
+          <button class="btn-login" type="submit" name="login">Login</button>
         </form>
       </div>
     </div>
@@ -79,11 +83,20 @@ export default {
 </script>
 
 <style scoped>
+.login {
+  position: relative;
+  background-image: url("https://congtycayxanhvietnam.com/wp-content/uploads/2018/05/banner.jpg");
+  background-size: cover;
+  height: 100vh;
+}
 .container {
-  width: 30%;
+  position: absolute;
+  width: 26rem;
   margin-top: 8%;
-  padding: 30px;
+  padding: 3rem;
   background: #ccc;
+  border-radius: 2rem;
+  left: 32%;
 }
 h3 {
   font-size: 33px;
@@ -93,20 +106,53 @@ h3 {
 ul {
   list-style: none;
 }
+.input-group {
+  position: relative;
+  padding-left: 2rem;
+}
+.input-group .form-label {
+  position: absolute;
+  transform: translateY(100%);
+  left: 2.3em;
+  color: #928383;
+  padding-left: 0.6em;
+  user-select: none;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+
+.form-control:not(:placeholder-shown) + .form-label,
+.form-control:focus + .form-label {
+  top: -2em;
+  font-size: 12px;
+  color: #000;
+}
+
+.input-group .fa-solid {
+  transform: translateX(-100%);
+  padding: 0.45em;
+}
 .form-control {
   width: 90%;
   height: 30px;
   border: none;
   border-radius: 4px;
   margin-top: 16px;
+  padding-left: 8px;
+}
+.form-control:focus {
+  border: 1px solid #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
 .errMes {
   font-size: 12px;
   color: red;
   padding-left: 6px;
 }
-.login {
-  margin: 8% 0 0 30%;
+.btn-login {
+  position: relative;
+  margin: 8% 0 0 33%;
   width: 130px;
   border: none;
   height: 40px;
