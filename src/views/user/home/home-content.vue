@@ -58,9 +58,9 @@ export default {
         console.error(error);
       }
     },
-    IdProduct() {
-      return this.$store.getters.MESSAGE;
-    },
+    // IdProduct() {
+    //   return this.$store.getters.MESSAGE;
+    // },
   },
 };
 </script>

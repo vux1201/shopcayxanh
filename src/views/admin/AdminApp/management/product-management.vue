@@ -12,8 +12,23 @@
               <span><i class="fa-regular fa-magnifying-glass"></i></span>
             </div>
             <div class="username">
-              <i class="fa-solid fa-user"></i>&nbsp;{{ userData.fullname }}
+              <a
+                ><i class="fa-solid fa-user"></i>&nbsp;{{
+                  userData.fullname
+                }}</a
+              >
             </div>
+            <ul class="hover-user">
+              <li>
+                <i class="fa-light fa-file-invoice"></i>&nbsp;Thông tin tài
+                khoản
+              </li>
+              <li><i class="fa-solid fa-key"></i>&nbsp;Đổi mật khẩu</li>
+              <li>
+                <i class="fa-regular fa-arrow-right-from-bracket"></i>&nbsp;Đăng
+                xuất
+              </li>
+            </ul>
           </div>
         </div>
         <button class="btn-adduser" @click="addProducts">
@@ -54,10 +69,42 @@
       <div class="show-addProducts" v-if="show == true">
         <form class="dialog">
           <h2 class="title1">Thông tin sản phẩm</h2>
+          <!--  -->
+          <div class="form-input">
+            <label>Nhóm danh mục <a title="trường bắt buộc">(*)</a></label>
+            <div class="form-categories">
+              <select class="category-groups" @click="checkGroups">
+                <option selected="" value="0">
+                  Vui lòng chọn nhóm danh mục !
+                </option>
+                <option value="1">Cây cảnh</option>
+                <option value="2">Chậu cảnh</option>
+              </select>
+            </div>
+          </div>
+          <!--  -->
+          <div class="form-input">
+            <label>Danh mục <a title="trường bắt buộc">(*)</a></label>
+            <div class="form-categories">
+              <select class="categories" v-show="idGroups == 1">
+                <option selected="" value="0">Vui lòng chọn danh mục !</option>
+                <option value="1">Cây cảnh để bàn</option>
+                <option value="2">Cây thủy sinh</option>
+                <option value="3">Cây cảnh nội thất</option>
+              </select>
+              <select class="categories" v-show="idGroups == 2">
+                <option selected="" value="0">Vui lòng chọn danh mục !</option>
+                <option value="1">Chậu đất nung</option>
+                <option value="2">Chậu đá mài - xi măng</option>
+                <option value="3">Chậu composite</option>
+              </select>
+            </div>
+          </div>
           <div class="form-input">
             <label>Tên sản phẩm <a title="trường bắt buộc">(*)</a></label>
             <input type="text" required />
           </div>
+          <!--  -->
           <div class="form-input">
             <label>Hình ảnh <a title="trường bắt buộc">(*)</a></label>
             <div class="list-img">
@@ -82,13 +129,20 @@
               required
             />
           </div>
+          <!--  -->
           <div class="form-input">
             <label>Giá sản phẩm <a title="trường bắt buộc">(*)</a></label>
             <input type="number" required />
           </div>
+          <!--  -->
           <div class="form-input">
-            <label>Trạng thái <a title="trường bắt buộc">(*)</a></label>
-            <input type="text" required />
+            <label>Số lượng hàng <a title="trường bắt buộc">(*)</a></label>
+            <input type="number" required />
+          </div>
+          <!--  -->
+          <div class="form-input">
+            <label>Giá sản phẩm <a title="trường bắt buộc">(*)</a></label>
+            <input type="number" required />
           </div>
           <div class="footer">
             <button class="btn-adduser" type="submit" @click="handleSave">
@@ -115,6 +169,7 @@ export default {
       newImage: "",
       images: [],
       userData: {},
+      idGroups: "1",
     };
   },
   //lấy thông tin đăng nhập
@@ -137,7 +192,11 @@ export default {
     addProducts() {
       this.show = !this.show;
     },
-    //image
+    //chọn nhóm danh mục
+    checkGroups() {
+      console.log("idGroups");
+    },
+    //up image
     changeImage(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!file.length) return;
@@ -200,18 +259,40 @@ export default {
   .show-products {
     .head {
       display: flex;
+      padding: 1rem 1rem 2rem 0px;
       justify-content: space-between;
       align-items: center;
       .user {
         display: flex;
         .username {
           padding: 1em;
+          height: 100%;
           i {
             margin-top: 8px;
+          }
+          &:hover + .hover-user {
+            display: block;
+          }
+        }
+        .hover-user {
+          position: absolute;
+          display: none;
+          list-style: none;
+          padding: 10px;
+          margin-top: 2.5rem;
+          transform: translateX(16rem);
+          li {
+            padding-bottom: 10px;
+          }
+          li:hover {
+            display: block;
+            color: #f28902;
           }
         }
         .search {
           padding: 1em;
+          margin-right: 2rem;
+          height: 100%;
           display: flex;
           input {
             height: 1.8rem;
@@ -222,6 +303,7 @@ export default {
             border-radius: 0 13px 13px 0;
             background: #ccc;
             width: 1.6rem;
+            height: 1.8rem;
             i {
               padding-left: 4px;
               transform: translateY(5px);
@@ -259,6 +341,12 @@ export default {
       label {
         padding: 0rem;
       }
+      .form-categories {
+        border: 1px solid #ccc;
+        width: 50rem;
+        height: 2rem;
+        padding: 5px 6px;
+      }
       .list-img {
         display: flex;
         width: 51rem;
@@ -287,7 +375,7 @@ export default {
         border: 1px solid #ccc;
         margin: 0.8rem 1rem 3px 0;
         height: 1.8rem;
-        padding: 3px 6px;
+        padding: 2px;
       }
       img {
         padding: 0.5em 0.25em;
@@ -301,7 +389,6 @@ export default {
     .footer {
       display: flex;
       margin-left: 0.5rem;
-      // justify-content: space-around;
       button {
         width: 6rem;
         margin-top: 1rem;
