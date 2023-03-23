@@ -11,7 +11,7 @@
     <div class="main">
       <div class="bg-dark">
         <div class="container" style="background-color: #eee">
-          <colLeft style="width: 25%"></colLeft>
+          <colLeft></colLeft>
           <mainHome></mainHome>
         </div>
       </div>

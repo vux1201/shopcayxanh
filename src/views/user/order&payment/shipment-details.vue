@@ -50,10 +50,8 @@
                       <i class="fa fa-user"></i>
                     </div>
                     <input
-                      name="vnOrderCheckB21:txtCusname"
                       type="text"
                       value="Nguyễn Vũ"
-                      id="vnOrderCheckB21_txtCusname"
                       class="form-control"
                       placeholder="Nhập họ &amp; tên"
                     />
@@ -65,9 +63,7 @@
                       <i class="fa fa-phone"></i>
                     </div>
                     <input
-                      name="vnOrderCheckB21:txtCusTel"
                       type="text"
-                      id="vnOrderCheckB21_txtCusTel"
                       class="form-control"
                       placeholder="Nhập số điện thoại"
                     />
@@ -79,9 +75,7 @@
                       <i class="fa fa-home"></i>
                     </div>
                     <input
-                      name="vnOrderCheckB21:txtCusAddress"
                       type="text"
-                      id="vnOrderCheckB21_txtCusAddress"
                       class="form-control"
                       placeholder="Nhập địa chỉ"
                     />
@@ -90,11 +84,9 @@
               </ul>
               <div class="button-signin">
                 <router-link to="/paymentView">
-                  <input
-                    type="image"
-                    src="https://vuoncayviet.com/img/Nextbtn.png"
-                    style="border-width: 0px"
-                  />
+                  <button>
+                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;Tiếp tục
+                  </button>
                 </router-link>
               </div>
             </div>
@@ -244,14 +236,26 @@ export default {
 }
 .form-control {
   width: 450px;
-  padding: 0 10px;
+  border: 1px solid #ccc;
+  padding: 1px 10px;
 }
 .button-signin {
   clear: both;
   width: 100%;
   margin-top: 20px;
   border-top: 1px solid #ddd;
-  padding-top: 20px;
+  padding-top: 18px;
   float: left;
+  button {
+    width: 25%;
+    height: 2.5em;
+    float: left;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: #f28902;
+    margin-top: 10px;
+  }
 }
 </style>

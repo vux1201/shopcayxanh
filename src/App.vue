@@ -29,9 +29,9 @@ export default {
         }
       }
     },
-    // onWheel() {
-    //   this.scroll();
-    // },
+    onWheel() {
+      this.scroll();
+    },
   },
 };
 </script>
@@ -54,6 +54,10 @@ body {
 a {
   color: #333;
   text-decoration: none;
+}
+.form-control {
+  padding: 1px 10px;
+  border: 1px solid #ccc;
 }
 a:hover {
   color: #f28902;

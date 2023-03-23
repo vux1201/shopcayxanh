@@ -79,12 +79,8 @@
                       </div>
                       <div class="button-signin">
                         <router-link to="/shipment-details"
-                          ><input
-                            src="https://vuoncayviet.com/img/btlogin.png"
-                            type="image"
-                            alt="Đăng nhập"
-                            class="button-login"
-                        /></router-link>
+                          ><button>Đăng nhập</button></router-link
+                        >
                       </div>
                       <div class="">
                         <a>Quên mật khấu</a> |
@@ -207,7 +203,7 @@ export default {
     border-radius: 100%;
     text-align: center;
     line-height: 29px;
-    top: 26px;
+    top: 28px;
     position: absolute;
   }
   ul li .part-line {
@@ -280,9 +276,22 @@ export default {
 }
 .form-control {
   width: 100%;
+  padding: 1px 10px;
+  border: 1px solid #ccc;
 }
 .button-signin {
   padding: 6px 0;
+  button {
+    width: 25%;
+    height: 2.5em;
+    float: left;
+    margin: 2% 80% 2% 0;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: #f28902;
+  }
 }
 .login-cart ul li.active a {
   background: #fff;

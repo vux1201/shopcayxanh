@@ -15,18 +15,8 @@
         </div>
       </div>
       <div class="search-block">
-        <input
-          name="vnHeader1:vnSearch1:txtKeyword"
-          type="text"
-          id="vnHeader1_vnSearch1_txtKeyword"
-          placeholder="Tìm Kiếm"
-        />
-        <image
-          id="btnSearch"
-          type="image"
-          src="https://vuoncayviet.com/img/Search.png"
-          name="btnSearch"
-        />
+        <input type="text" placeholder="Tìm Kiếm" />
+        <button>Tìm kiếm</button>
       </div>
     </div>
   </header>
@@ -69,8 +59,7 @@ header {
   width: 300px;
   float: right;
   margin-top: 30px;
-  input[type="text"],
-  input[type="textbox"] {
+  input[type="text"] {
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     border-right: none;
@@ -79,7 +68,7 @@ header {
     float: left;
     border-radius: 5px 0 0 5px;
   }
-  image[type="button"] {
+  button {
     border: none;
     background: #f28902;
     float: left;

@@ -57,6 +57,7 @@
                       </option>
                       <option value="2">Trả tiền mặt khi nhận hàng</option>
                     </select>
+                    <i class="fa-light fa-angle-down"></i>
                   </div>
                 </li>
                 <li>
@@ -70,6 +71,7 @@
                       <option value="2">Nhận hàng tại cửa hàng</option>
                       <option value="3">Nhận hàng qua bưu điện</option>
                     </select>
+                    <i class="fa-light fa-angle-down"></i>
                   </div>
                 </li>
                 <li>
@@ -93,12 +95,9 @@
               </ul>
               <div class="button-signin">
                 <router-link to="/myOrder">
-                  <input
-                    @click="complete"
-                    type="image"
-                    src="https://vuoncayviet.com/img/BtnDatHang.png"
-                    style="border-width: 0px"
-                  />
+                  <button @click="complete">
+                    <i class="fa-solid fa-check"></i>&nbsp;Đặt hàng
+                  </button>
                 </router-link>
               </div>
             </div>
@@ -330,12 +329,18 @@ export default {
         margin-bottom: 5px;
       }
       .form-delivery {
+        display: flex;
         float: left;
         width: calc(100% - 150px);
         select {
           width: 100%;
           border: 1px solid #ccc;
           padding: 5px;
+        }
+        i {
+          transform: translateX(-20px);
+          padding-top: 8px;
+          pointer-events: none;
         }
         textarea {
           width: 97%;
@@ -353,6 +358,17 @@ export default {
       border-top: 1px solid #ddd;
       padding-top: 20px;
       float: left;
+      button {
+        width: 30%;
+        height: 2.5em;
+        float: left;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        background: #f28902;
+        margin-top: 10px;
+      }
     }
   }
   .content-right {

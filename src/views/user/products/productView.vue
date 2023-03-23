@@ -20,7 +20,6 @@
     <div class="main">
       <div class="bg-dark">
         <div class="container" style="background-color: #eee">
-          <colLeft style="width: 25%"></colLeft>
           <productsContent></productsContent>
         </div>
       </div>

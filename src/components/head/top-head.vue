@@ -83,7 +83,7 @@ export default {
       userData: {},
     };
   },
-  //đăng nhập
+  //lấy thông tin đăng nhập
   async created() {
     const token = localStorage.getItem("access_token");
     console.log(token);
@@ -115,7 +115,7 @@ export default {
   padding: 0 56px;
 }
 .top-head {
-  width: 80%;
+  width: 100%;
   float: left;
   background: #eee;
   position: fixed;
@@ -126,7 +126,7 @@ export default {
 }
 .hotline {
   float: left;
-  padding-top: 8px;
+  padding-top: 0.5rem;
   color: #666;
   a {
     font-weight: bold;

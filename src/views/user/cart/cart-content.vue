@@ -88,23 +88,11 @@
           <div class="button-signin">
             &nbsp;&nbsp;
             <router-link to="/orderView">
-              <input
-                type="image"
-                name="btnSendOrder"
-                id="btnSendOrder"
-                src="https://vuoncayviet.com/img/DatHangBtn.png"
-                style="border-width: 0px"
-              />
+              <button>Thanh toán</button>
             </router-link>
             &nbsp;&nbsp;
             <router-link to="/">
-              <input
-                type="image"
-                name="btnShopping"
-                id="btnShopping"
-                src="https://vuoncayviet.com/img/ChonSPBtn.png"
-                style="border-width: 0px"
-              />
+              <button>Thêm sản phẩm</button>
             </router-link>
           </div>
         </div>
@@ -180,5 +168,17 @@ export default {
   border-top: 1px solid #ddd;
   padding-top: 20px;
   float: left;
+}
+.button-signin button {
+  width: 16%;
+  margin: 5px;
+  height: 2.5em;
+  float: left;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #f28902;
+  margin-top: 10px;
 }
 </style>

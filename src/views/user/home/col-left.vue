@@ -12,18 +12,18 @@
                 </h3>
                 <ul>
                   <li>
-                    <a href="#">
+                    <a href="/categoryView/1">
                       <span class="small-arrow">Cây cảnh để bàn</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/categoryView/2">
                       <span class="small-arrow">Cây thuỷ sinh</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span class="small-arrow">Sen đá, xương rồng</span>
+                    <a href="/categoryView/3">
+                      <span class="small-arrow">Cây cảnh nội thất</span>
                     </a>
                   </li>
                   <li>
@@ -319,8 +319,8 @@
   vertical-align: middle;
 }
 .news-col .pic-news img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .news-col h6 {
   /* float: left;

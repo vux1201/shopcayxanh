@@ -42,6 +42,12 @@ const routes = [
     name: "product-return",
     component: () => import("../views/user/service/product-return.vue"),
   },
+  //liên hệ
+  {
+    path: "/contactView",
+    name: "contactView",
+    component: () => import("../views/user/service/contactView.vue"),
+  },
   //khuyến mãi
   {
     path: "/promotion",
@@ -53,11 +59,6 @@ const routes = [
     path: "/adminLogin",
     name: "adminLogin",
     component: () => import("../views/admin/AdminApp/Login/adminLogin.vue"),
-  },
-  {
-    path: "/Dashboard",
-    name: "Dashboard",
-    component: () => import("../views/admin/admin-home/Dashboard.vue"),
   },
   {
     path: "/order-management",

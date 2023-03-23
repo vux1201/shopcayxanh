@@ -140,7 +140,7 @@
                 </ul>
               </li>
               <!-- Liên hệ -->
-              <li><a href="#" target="">Liên hệ</a></li>
+              <li><a href="/contactView" target="">Liên hệ</a></li>
               <!-- Khuyến mãi  -->
               <li>
                 <a href="/promotion" target="">Khuyến mãi</a>

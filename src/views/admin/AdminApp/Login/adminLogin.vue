@@ -13,7 +13,7 @@
                   class="form-control"
                   type="text"
                   name="username"
-                  placeholder=" "
+                  required
                   v-model="email"
                 />
                 <label class="form-label">User name</label>
@@ -26,8 +26,7 @@
                 <input
                   class="form-control"
                   type="password"
-                  name="password"
-                  placeholder=" "
+                  required
                   v-model="password"
                 />
                 <label class="form-label">Password</label>
@@ -62,7 +61,7 @@ export default {
         console.log(res);
         if (res.status == 200) {
           localStorage.setItem("access_token", res.data.access_token);
-          this.$router.push({ path: "/dashboard" });
+          this.$router.push({ path: "/product-management" });
           // location.reload();
         }
       } catch (error) {
@@ -96,7 +95,7 @@ export default {
   padding: 3rem;
   background: #ccc;
   border-radius: 2rem;
-  left: 32%;
+  left: 35%;
 }
 h3 {
   font-size: 33px;
@@ -109,6 +108,7 @@ ul {
 .input-group {
   position: relative;
   padding-left: 2rem;
+  margin-top: 1em;
 }
 .input-group .form-label {
   position: absolute;
@@ -135,7 +135,7 @@ ul {
 .form-control {
   width: 90%;
   height: 30px;
-  border: none;
+  border: 1px solid #8f7e7e;
   border-radius: 4px;
   margin-top: 16px;
   padding-left: 8px;
@@ -146,13 +146,15 @@ ul {
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 .errMes {
-  font-size: 12px;
+  font-size: 13px;
   color: red;
-  padding-left: 6px;
+  padding-left: 2rem;
 }
 .btn-login {
   position: relative;
-  margin: 8% 0 0 33%;
+  float: right;
+  margin-right: 31%;
+  bottom: -1.5rem;
   width: 130px;
   border: none;
   height: 40px;

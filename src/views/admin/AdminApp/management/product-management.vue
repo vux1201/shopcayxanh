@@ -1,22 +1,6 @@
 <template>
   <div class="manage-user">
-    <div class="sidenav">
-      <h2 class="logo"><i class="fa-light fa-seedling"></i>&nbsp;Bosai shop</h2>
-      <ul>
-        <li><i class="fa-solid fa-user"></i>&nbsp;User management</li>
-        <li>
-          <i class="fa-regular fa-list-check"></i>&nbsp;Product management
-        </li>
-        <li><i class="fa-solid fa-cart-shopping"></i>&nbsp;Order management</li>
-        <li><i class="fa-solid fa-bell"></i>&nbsp;Notification</li>
-      </ul>
-      <ul>
-        <li><i class="fa-light fa-gear"></i>&nbsp;Setting</li>
-        <li class="btn-logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout
-        </li>
-      </ul>
-    </div>
+    <sidenav></sidenav>
     <div class="content">
       <!-- Hiển thị sản phẩm -->
       <div class="show-products" v-if="show == false">
@@ -28,7 +12,7 @@
               <span><i class="fa-regular fa-magnifying-glass"></i></span>
             </div>
             <div class="username">
-              <i class="fa-solid fa-user"></i>&nbsp;User name
+              <i class="fa-solid fa-user"></i>&nbsp;{{ userData.fullname }}
             </div>
           </div>
         </div>
@@ -51,9 +35,12 @@
             <td>Hanoi</td>
             <td>032323322</td>
             <td>
-              <a href="#"><i class="fa fa-file-pen" title="edit"></i></a>
+              <a @click="addProducts"
+                ><i class="fa fa-file-pen" title="edit"></i
+              ></a>
               <a href="#"
                 ><i
+                  @click="handleDelete"
                   class="fa-regular fa-trash-can"
                   title="delete"
                   style="--fa-primary-color: crimson"
@@ -66,26 +53,50 @@
       <!-- thêm sản phẩm -->
       <div class="show-addProducts" v-if="show == true">
         <form class="dialog">
-          <h2 class="title1">Thêm sản phẩm mới</h2>
+          <h2 class="title1">Thông tin sản phẩm</h2>
           <div class="form-input">
             <label>Tên sản phẩm <a title="trường bắt buộc">(*)</a></label>
             <input type="text" required />
           </div>
           <div class="form-input">
             <label>Hình ảnh <a title="trường bắt buộc">(*)</a></label>
-            <input type="text" required />
+            <div class="list-img">
+              <div class="img" v-for="(image, index) in images" :key="index">
+                <img
+                  :src="
+                    image ||
+                    'https://www.namepros.com/attachments/empty-png.89209/'
+                  "
+                />
+                <button class="btn-del-img" @click="remoteImage(index)">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+            <input
+              style="border: none"
+              accept="image/*"
+              type="file"
+              @change="changeImage"
+              multiple
+              required
+            />
           </div>
           <div class="form-input">
             <label>Giá sản phẩm <a title="trường bắt buộc">(*)</a></label>
-            <input type="text" required />
+            <input type="number" required />
           </div>
           <div class="form-input">
             <label>Trạng thái <a title="trường bắt buộc">(*)</a></label>
             <input type="text" required />
           </div>
           <div class="footer">
-            <button class="btn-adduser" type="submit">Lưu</button>
-            <button class="btn-adduser" type="button">Hủy</button>
+            <button class="btn-adduser" type="submit" @click="handleSave">
+              Lưu
+            </button>
+            <button class="btn-adduser" type="reset" @click="addProducts">
+              Hủy
+            </button>
           </div>
         </form>
       </div>
@@ -94,16 +105,71 @@
 </template>
 
 <script>
+import sidenav from "@/views/admin/AdminApp/management/sidenav.vue";
+import { file } from "@babel/types";
+import { api } from "@/api";
 export default {
   data() {
     return {
       show: false,
+      newImage: "",
+      images: [],
+      userData: {},
     };
+  },
+  //lấy thông tin đăng nhập
+  async created() {
+    const token = localStorage.getItem("access_token");
+    console.log(token);
+    const res = await api.getProfile(token);
+    //console.log(res);
+    if (res.status == 200) {
+      this.userData = res.data;
+    }
+    // console.log(this.userData);
+    if (token == token) {
+      this.isActive = true;
+    } else {
+      this.isActive = false;
+    }
   },
   methods: {
     addProducts() {
-      this.show = true;
+      this.show = !this.show;
     },
+    //image
+    changeImage(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!file.length) return;
+      this.createImage(files);
+    },
+    createImage(files) {
+      var vm = this;
+      for (var index = 0; index < files.length; index++) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          const imageUrl = event.target.result;
+          vm.images.push(imageUrl);
+        };
+        reader.readAsDataURL(files[index]);
+      }
+    },
+    remoteImage(index) {
+      this.images.splice(index, 1);
+    },
+
+    //Lưu thông tin
+    handleSave() {
+      alert("Đã lưu!");
+    },
+
+    // xóa phần tử
+    handleDelete() {
+      alert("Bạn có chắc muốn xóa không!");
+    },
+  },
+  components: {
+    sidenav,
   },
 };
 </script>
@@ -112,35 +178,6 @@ export default {
 .manage-user {
   display: flex;
   --spacing: 10px;
-}
-.sidenav {
-  width: 14%;
-  height: 100vh;
-  color: #fff;
-  background: #6c6b7a;
-  padding: calc(var(--spacing) * 2);
-  .logo {
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    border-bottom: 3px solid #fff;
-  }
-  ul {
-    padding: var(--spacing) 0;
-  }
-  li {
-    margin: 1rem;
-    padding: var(--spacing);
-    list-style: none;
-    &:hover {
-      color: #000;
-      background: #e6dddd;
-      transition: 0.5s ease;
-      border-radius: 6px;
-    }
-  }
 }
 .content {
   width: 80%;
@@ -157,6 +194,7 @@ export default {
     border-radius: 7px;
     margin: 0 0 1.5em 1em;
     height: 3em;
+    width: 10em;
     color: #fff;
   }
   .show-products {
@@ -168,13 +206,17 @@ export default {
         display: flex;
         .username {
           padding: 1em;
+          i {
+            margin-top: 8px;
+          }
         }
         .search {
           padding: 1em;
           display: flex;
           input {
-            height: 1.5rem;
+            height: 1.8rem;
             padding: 1px 6px;
+            border: 1px solid #ccc;
           }
           span {
             border-radius: 0 13px 13px 0;
@@ -193,6 +235,7 @@ export default {
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
         0 0 8px rgba(102, 175, 233, 0.6);
       border-collapse: collapse;
+      margin-left: 16px;
       th {
         height: 3em;
         padding: var(--spacing);
@@ -212,15 +255,47 @@ export default {
     margin: auto 4rem;
     .form-input {
       padding: 1rem;
-      width: 100vh;
+      width: 10rem;
       label {
-        // padding: 1rem;
+        padding: 0rem;
+      }
+      .list-img {
+        display: flex;
+        width: 51rem;
+        height: 10rem;
+        overflow: inherit;
+        margin-top: 1.1em;
+        padding: 0 0.25em;
+        border: 1px solid #ccc;
+        .img {
+          .btn-del-img {
+            float: right;
+            transform: translateY(-9.4rem);
+            margin-right: 14px;
+            i {
+              background: #edc6cd;
+              width: 1rem;
+              height: 1rem rem;
+              border-radius: 50%;
+              padding-top: 1.5px;
+            }
+          }
+        }
       }
       input {
-        width: 100%;
-        margin: 0.8rem 1rem 0 0;
+        width: 50rem;
+        border: 1px solid #ccc;
+        margin: 0.8rem 1rem 3px 0;
         height: 1.8rem;
         padding: 3px 6px;
+      }
+      img {
+        padding: 0.5em 0.25em;
+        width: 100%;
+        max-width: 50rem;
+        height: 100%;
+        max-height: 50rem;
+        object-fit: cover;
       }
     }
     .footer {

@@ -18,7 +18,7 @@
             >
               <ul class="slides">
                 <li class="flex-active-slide">
-                  <div class="imgeffect" style="width: 266px">
+                  <div class="imgeffect">
                     <img :src="item.img" :alt="item.name" draggable="false" />
                   </div>
                 </li>
@@ -36,7 +36,7 @@
                   class="flex-active-slide"
                   style="
                     width: 80px;
-                    margin-right: 5px;
+                    margin: 10px 1px;
                     float: left;
                     display: flex;
                   "
@@ -114,19 +114,12 @@
                 <input type="button" value="+" @click="counter++" />
               </div>
               <div class="but-buynow">
-                <router-link to="/orderView"
-                  ><input
-                    @click="order"
-                    src="https://vuoncayviet.com/img/bt_DatHang.png"
-                    type="image"
-                    value="Mua ngay"
-                /></router-link>
+                <router-link to="/orderView">
+                  <button @click="order">Mua ngay</button></router-link
+                >
                 <router-link to="/cartView"
-                  ><input
-                    src="https://vuoncayviet.com/img/bt_AddToCart.png"
-                    type="image"
-                    value="Thêm vào giỏ hàng"
-                /></router-link>
+                  ><button>Thêm vào giỏ hàng</button></router-link
+                >
               </div>
             </div>
             <div class="call-phone-zalo">
@@ -178,15 +171,13 @@
     <div class="content-page" v-for="item in list" :key="item.id">
       <div class="detail-content">
         <h2 class="title-ct">Chi tiết sản phẩm</h2>
-        <span v-html="item.detail"> </span>
+        <!-- //chi tiết sản phẩm -->
+        <div class="detail-products" v-html="item.detail"></div>
         <div class="decription">
           <div class="but-buynow" style="width: 195px; margin: 0 auto">
-            <input
-              src="https://vuoncayviet.com/img/bt_DatHang.png"
-              type="image"
-              class="button-order"
-              value="Mua ngay"
-            />
+            <router-link to="/orderView">
+              <button @click="order">Mua ngay</button></router-link
+            >
           </div>
         </div>
       </div>
@@ -309,7 +300,7 @@ export default {
 <style lang="scss" scoped>
 .content-page {
   display: flex;
-  width: 98%;
+  width: 100%;
   float: left;
   background: #fff;
   padding: 20px;
@@ -435,12 +426,13 @@ export default {
   text-align: center;
   padding: 0 40%;
 }
-.but-buynow input[type="image"] {
+.but-buynow button {
   width: 100%;
+  height: 2.5em;
   float: left;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   background: #f28902;
   margin-top: 10px;
@@ -476,11 +468,15 @@ export default {
   line-height: 30px;
   background: #f28902;
 }
-.detail-content {
+::v-deep .detail-content {
   width: 100%;
   float: left;
   margin-bottom: 10px;
   line-height: 1.8;
+  .detail-products ul {
+    padding-left: 40px;
+    margin-bottom: 10px;
+  }
   h2.title-ct {
     font-weight: normal;
     font-size: 18px;
@@ -533,6 +529,7 @@ export default {
   float: left;
   padding: 10px 0;
 }
+
 .relative-product ul {
   margin: 0;
   padding: 0;

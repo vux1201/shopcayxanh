@@ -88,7 +88,6 @@ export default {
       password: "",
       res: "",
       inputType: "password",
-      inputpw: "password",
       errLogin1: "",
       errLogin2: "",
     };

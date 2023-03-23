@@ -27,18 +27,46 @@
               <div class="hot-news">
                 <div class="hot-news-large">
                   <div class="img-news-hot">
-                    <img
-                      src="https://vuoncayviet.com/data/items/1183/cay-luoi-ho-co-may-loai.jpg"
-                      alt=""
-                      width="100%"
-                    />
+                    <v-carousel
+                      cycle
+                      height="400"
+                      hide-delimiter-background
+                      show-arrows="hover"
+                    >
+                      <v-carousel-item
+                        v-for="(slide, i) in slides"
+                        :key="i"
+                        :src="slide.src"
+                      >
+                      </v-carousel-item>
+                    </v-carousel>
+                    <!-- <div class="list-img">
+                      <img
+                        src="https://vuoncayviet.com/data/items/1183/cay-luoi-ho-co-may-loai.jpg"
+                        alt=""
+                        width="100%"
+                      />
+                      <img
+                        src="https://vuoncayviet.com/data/items/1236/dac-diem-sinh-truong-y-nghia-phong-thuy-cach-cham-soc-cay-truc-bach-hop-1.jpg"
+                        alt=""
+                        width="100%"
+                      />
+                    </div> -->
+                    <!-- <iframe
+                      src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FsinhvienITVietNam%2Fvideos%2F548462343689952%2F&show_text=false&width=476&t=0"
+                      width="476"
+                      height="476"
+                      style="border: none; overflow: hidden"
+                      scrolling="no"
+                      frameborder="0"
+                      allowfullscreen="true"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    ></iframe> -->
                   </div>
-                  <p>&nbsp;&nbsp;&nbsp;Video giới thiệu về các loại cây:))</p>
                 </div>
               </div>
               <div class="news-page"></div>
             </div>
-            <div id="vnContent1__ctl0_tblPager" class="pages"></div>
           </div>
         </div>
       </section>
@@ -59,6 +87,21 @@ import footer1 from "@/components/footer/footer.vue";
 import contact from "@/components/footer/contact.vue";
 
 export default {
+  data() {
+    return {
+      slides: [
+        {
+          src: "https://vuoncayviet.com/data/items/1183/cay-luoi-ho-co-may-loai.jpg",
+        },
+        {
+          src: "https://vuoncayviet.com/data/items/1183/cay-luoi-ho-co-may-loai.jpg",
+        },
+        {
+          src: "https://vuoncayviet.com/data/items/1183/cay-luoi-ho-co-may-loai.jpg",
+        },
+      ],
+    };
+  },
   components: {
     TopHead,
     Head,
@@ -89,8 +132,54 @@ export default {
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
+.list-img {
+  overflow: hidden;
+  height: 500px;
+  width: 400px;
+  margin: 0 auto;
+  /* 0 */
+  width: 100%;
+  animation: slideshow 6s infinite;
+}
 img {
   width: 50%;
   margin-left: 20%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes slideshow {
+  20% {
+    margin-top: 0;
+  }
+  30% {
+    margin-top: -100%;
+  }
+  40% {
+    margin-top: -100%;
+  }
+  50% {
+    margin-top: -200%;
+  }
+  60% {
+    margin-top: -200%;
+  }
+  70% {
+    margin-top: -300%;
+  }
+  80% {
+    margin-top: -300%;
+  }
+  90% {
+    margin-top: -400%;
+  }
+  100% {
+    margin-top: -400%;
+  }
+}
+iframe {
+  padding: 20px;
+  margin-left: 30px;
 }
 </style>

@@ -12,9 +12,9 @@
           <li v-for="(item, index) in list" :key="index">
             <div class="product">
               <div class="pic-news">
-                <a href="/productView">
-                  <img :src="item.img" :alt="item.name" />
-                </a>
+                <router-link :to="'/productView/' + item.id">
+                  <img :src="item.img" :alt="item.name"
+                /></router-link>
               </div>
               <h3>
                 <a href="/productView/">{{ item.name }}</a>
@@ -69,7 +69,7 @@ export default {
 .bg-dark {
   background: #eee;
   max-width: 888px;
-  width: 73%;
+  width: 75%;
   float: left;
   padding-left: 1.5%;
 }
