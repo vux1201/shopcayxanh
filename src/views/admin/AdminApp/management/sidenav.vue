@@ -26,7 +26,9 @@
         >
       </ul>
       <ul>
-        <li><i class="fa-light fa-gear"></i>&nbsp;Setting</li>
+        <router-link to="AccountSettings">
+          <li><i class="fa-light fa-gear"></i>&nbsp;Setting</li></router-link
+        >
         <button class="btn-logout" @click="logout">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout
         </button>

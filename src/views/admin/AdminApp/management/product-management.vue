@@ -31,7 +31,7 @@
             </ul>
           </div>
         </div>
-        <button class="btn-adduser" @click="addProducts">
+        <button class="btn-adduser" href="#edit" @click="addProducts">
           <i class="fa-light fa-circle-plus"></i>&nbsp;Thêm sản phẩm
         </button>
         <table class="container">
@@ -53,7 +53,7 @@
               <a @click="addProducts"
                 ><i class="fa fa-file-pen" title="edit"></i
               ></a>
-              <a href="#"
+              <a
                 ><i
                   @click="handleDelete"
                   class="fa-regular fa-trash-can"
@@ -67,7 +67,7 @@
       </div>
       <!-- thêm sản phẩm -->
       <div class="show-addProducts" v-if="show == true">
-        <form class="dialog">
+        <form>
           <h2 class="title1">Thông tin sản phẩm</h2>
           <!--  -->
           <div class="form-input">
@@ -224,7 +224,7 @@ export default {
 
     // xóa phần tử
     handleDelete() {
-      alert("Bạn có chắc muốn xóa không!");
+      confirm("Bạn có chắc muốn xóa");
     },
   },
   components: {
@@ -283,6 +283,9 @@ export default {
           transform: translateX(16rem);
           li {
             padding-bottom: 10px;
+          }
+          &:hover {
+            display: block;
           }
           li:hover {
             display: block;

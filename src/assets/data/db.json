@@ -21,7 +21,7 @@
       "class": 1,
       "class_name": "cây cảnh để bàn",
       "id": 0,
-      "img": "https://vuoncayviet.com/data/items/1218/cay-hoa-hai-duong.jpg",
+      "img": ["https://vuoncayviet.com/data/items/1218/cay-hoa-hai-duong.jpg","https://vuoncayviet.com/data/items/897/cay-ngu-gia-bi-xanh-6.JPG","https://vuoncayviet.com/data/items/897/cay-ngu-gia-bi-xanh-4.JPG","https://vuoncayviet.com/data/items/1059/cay-xuong-rong-thanh-son-vcv.jpg","https://vuoncayviet.com/data/items/1006/cay-xuong-rong-trang-nguyen-bui-1.JPG", "https://vuoncayviet.com/data/items/1006/cay-xuong-rong-trang-nguyen-bui-4.png"],
       "name": "Cây hải đường",
       "size": "NT058: 35 x 50cm",
       "price": "85,000 đ",

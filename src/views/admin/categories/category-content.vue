@@ -1,16 +1,21 @@
 <template>
   <div class="main-block list-product">
-    <div class="head-content">
+    <div
+      class="head-content"
+      v-for="(item, index) in classProducts"
+      :key="index"
+    >
       <div class="title">
-        <h1>Cây cảnh</h1>
+        <h1>{{ item.name }}</h1>
       </div>
       <div class="detail-content">
         <div class="decription">
-          <div>&nbsp;&nbsp;&nbsp;Mô tả</div>
+          <div>&nbsp;&nbsp;&nbsp; {{ item.decription }}</div>
         </div>
       </div>
     </div>
 
+    <!-- hiển thị sản phẩm -->
     <div class="product-block">
       <ul>
         <li v-for="item in list" :key="item.id">
@@ -41,7 +46,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      list: {},
+      list: "",
+      classProducts: "",
     };
   },
   mounted() {
@@ -60,13 +66,15 @@ export default {
       }
     },
   },
+  //lấy class sp
   watch: {
-    list(newVal) {
+    class(newVal) {
       if (newVal[0].class) {
-        fetch(Api + "/class?id=" + newVal[0].class)
+        axios(Api + "/class?id=" + newVal[0].class)
           .then((response) => response.json())
-          .then((data) => (this.class_name = data));
+          .then((data) => (this.classProducts = data));
       }
+      console.log(this.classProducts, 1);
     },
   },
 };

@@ -66,21 +66,7 @@ export default {
   width: 100%;
   float: left;
 }
-.banner-small {
-  width: 50%;
-  float: left;
-  margin: 20px 0;
-  image {
-    width: 100%;
-    .v-img__img {
-      width: 100%;
-    }
-  }
-  &.small-1 {
-    margin-right: 0px;
-  }
-  &.small-2 {
-    margin-left: 0px;
-  }
+::v-deep .v-img__img {
+  width: auto;
 }
 </style>

@@ -13,7 +13,7 @@
             <div class="product">
               <div class="pic-news">
                 <router-link :to="'/productView/' + item.id">
-                  <img :src="item.img" :alt="item.name"
+                  <img :src="item.img[0]" :alt="item.name"
                 /></router-link>
               </div>
               <h3>
@@ -58,9 +58,6 @@ export default {
         console.error(error);
       }
     },
-    // IdProduct() {
-    //   return this.$store.getters.MESSAGE;
-    // },
   },
 };
 </script>

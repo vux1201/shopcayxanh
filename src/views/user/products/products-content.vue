@@ -3,50 +3,48 @@
   <div class="product">
     <div
       class="content-page"
-      style="margin-top: 10px"
+      style="margin-top: 20px"
       v-for="(item, index) in list"
       :key="index"
     >
       <div class="pic-product">
-        <div class="product_images_holder"></div>
         <div class="product_images_holder">
           <!-- product photos carousel -->
           <div class="flexslider" id="slider-1">
             <div
               class="flex-viewport"
-              style="overflow: hidden; position: relative; height: 308px"
+              style="overflow: hidden; position: relative; height: 20rem"
             >
               <ul class="slides">
+                <!--  -->
                 <li class="flex-active-slide">
-                  <div class="imgeffect">
-                    <img :src="item.img" :alt="item.name" draggable="false" />
-                  </div>
+                  <v-carousel
+                    height="400"
+                    hide-delimiter-background
+                    show-arrows="hover"
+                    v-model="currentIndex"
+                  >
+                    <v-carousel-item
+                      v-for="(img, i) in item.img"
+                      :key="i"
+                      :src="img"
+                    >
+                    </v-carousel-item>
+                  </v-carousel>
                 </li>
               </ul>
             </div>
           </div>
           <!-- slider thumbnails -->
           <div id="slider-carousel" class="flexslider slider-carousel">
-            <div
-              class="flex-viewport"
-              style="overflow: hidden; position: relative"
-            >
+            <div class="flex-viewport">
               <ul class="slides">
                 <li
                   class="flex-active-slide"
-                  style="
-                    width: 80px;
-                    margin: 10px 1px;
-                    float: left;
-                    display: flex;
-                  "
+                  v-for="(img, i) in item.img"
+                  :key="i"
                 >
-                  <img
-                    :src="item.img"
-                    :alt="item.name"
-                    class=""
-                    draggable="false"
-                  />
+                  <img :src="img" :alt="item" @click="goToSlideIndex(i)" />
                 </li>
               </ul>
             </div>
@@ -56,62 +54,37 @@
       <div class="intro-product">
         <h1>{{ item.name }}</h1>
         <div class="ntv-price">
-          <div style="text-align: justify">
-            <strong
-              ><span style="color: rgb(0, 0, 0)"
-                ><span style="font-size: medium"
-                  ><span style="font-family: 'Times New Roman'"
-                    >{{ item.name }}
-                  </span></span
-                ></span
-              ></strong
-            ><span style="color: rgb(0, 0, 0)"
-              ><span style="font-size: medium"
-                ><span style="font-family: 'Times New Roman'"
-                  >&nbsp;{{ item.introduce }}</span
-                ></span
-              ></span
-            >
+          <div>
+            <strong>{{ item.name }}</strong>
+            <span>&nbsp;{{ item.introduce }}</span>
           </div>
           <br />
-          <div style="text-align: justify">{{ item.size }} &nbsp;</div>
+          <div>{{ item.size }} &nbsp;</div>
           <br />
-          <div style="text-align: justify">
-            <em
-              style="
-                box-sizing: border-box;
-                color: rgb(51, 51, 51);
-                font-family: 'Open Sans', sans-serif;
-                font-size: 14px;
-                text-align: start;
-              "
-              >Lưu ý: Giá sản phẩm đã bao gồm chậu.</em
-            >
+          <div>
+            <em>Lưu ý: Giá sản phẩm đã bao gồm chậu.</em>
           </div>
           <p>
             <strong>Tình trạng:</strong>
             <img :src="item.status" width="104" height="31" />
           </p>
           <div class="price">
-            <strong style="color: #666; float: left; margin-right: 4px"
-              >Giá bán:</strong
-            >
+            <strong>Giá bán:</strong>
             <div class="price-af">{{ item.price }}</div>
             <div class="price-bf"></div>
           </div>
           <div class="block-button">
             <div class="quanlity-product">
               <div class="num-quanlity">
-                <input type="button" value="-" @click="counter--" />
+                <input type="button" value="-" @click="onClickMinus" />
                 <p
                   name="txtCount"
-                  counter
                   type="text"
                   style="width: 90px; text-align: center"
                 >
-                  <a class="counter">{{ counter }}</a>
+                  <a class="">{{ quantity }}</a>
                 </p>
-                <input type="button" value="+" @click="counter++" />
+                <input type="button" value="+" @click="onClickPlus" />
               </div>
               <div class="but-buynow">
                 <router-link to="/orderView">
@@ -122,6 +95,7 @@
                 >
               </div>
             </div>
+            <!-- sdt tt lien he -->
             <div class="call-phone-zalo">
               <a href="tel:0985507150"
                 ><i
@@ -145,6 +119,7 @@
           </div>
         </div>
       </div>
+      <!-- cam ket -->
       <div class="intro-delevery">
         <div>
           <div>
@@ -168,6 +143,7 @@
         </div>
       </div>
     </div>
+    <!-- chi tiet san pham -->
     <div class="content-page" v-for="item in list" :key="item.id">
       <div class="detail-content">
         <h2 class="title-ct">Chi tiết sản phẩm</h2>
@@ -181,125 +157,145 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="content-page">
-      <div class="detail-content">
-        <h2>Sản phẩm tương tự</h2>
-        <div class="product-block relative-product">
-          <ul>
-            <li>
-              <div class="product">
-                <div class="pic-news">
-                  <a href="#"
-                    ><img
-                      src="https://vuoncayviet.com/data/items/1216/thiet-moc-lan-vcv.jpg"
-                      alt="Cây Thiết Mộc Lan nội thất"
-                  /></a>
+      <!-- san pham tuong tu -->
+      <div class="content-page">
+        <div class="detail-content">
+          <h2>Sản phẩm tương tự</h2>
+          <div class="product-block relative-product">
+            <ul>
+              <li>
+                <div class="product">
+                  <div class="pic-news">
+                    <a href="#"
+                      ><img
+                        src="https://vuoncayviet.com/data/items/1216/thiet-moc-lan-vcv.jpg"
+                        alt="Cây Thiết Mộc Lan nội thất"
+                    /></a>
+                  </div>
+                  <h3>
+                    <a href="#">Cây Thiết Mộc Lan nội thất</a>
+                  </h3>
+                  <div class="price-product">650,000 đ</div>
+                  <div class="cart-product">
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a
+                    ><a href="#"><i class="fa fa-eye"></i></a>
+                  </div>
                 </div>
-                <h3>
-                  <a href="#">Cây Thiết Mộc Lan nội thất</a>
-                </h3>
-                <div class="price-product">650,000 đ</div>
-                <div class="cart-product">
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a
-                  ><a href="#"><i class="fa fa-eye"></i></a>
+              </li>
+              <li>
+                <div class="product">
+                  <div class="pic-news">
+                    <a href="#"
+                      ><img
+                        src="https://vuoncayviet.com/data/items/896/mai-van-phuc-de-ban-phong-thuy-vuoncayviet.jpg"
+                        alt="Cây Mai Vạn Phúc"
+                    /></a>
+                  </div>
+                  <h3>
+                    <a href="#">Cây Mai Vạn Phúc</a>
+                  </h3>
+                  <div class="price-product">200,000 đ</div>
+                  <div class="cart-product">
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a
+                    ><a href="#"><i class="fa fa-eye"></i></a>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <div class="pic-news">
-                  <a href="#"
-                    ><img
-                      src="https://vuoncayviet.com/data/items/896/mai-van-phuc-de-ban-phong-thuy-vuoncayviet.jpg"
-                      alt="Cây Mai Vạn Phúc"
-                  /></a>
+              </li>
+              <li>
+                <div class="product">
+                  <div class="pic-news">
+                    <a href="#"
+                      ><img
+                        src="https://vuoncayviet.com/data/items/895/mai-chi-thien-phong-thuy-de-ban.jpg"
+                        alt="Cây Mai Chỉ Thiên"
+                    /></a>
+                  </div>
+                  <h3>
+                    <a href="#">Cây Mai Chỉ Thiên</a>
+                  </h3>
+                  <div class="price-product">Liên hệ</div>
+                  <div class="cart-product">
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a
+                    ><a href="#"><i class="fa fa-eye"></i></a>
+                  </div>
                 </div>
-                <h3>
-                  <a href="#">Cây Mai Vạn Phúc</a>
-                </h3>
-                <div class="price-product">200,000 đ</div>
-                <div class="cart-product">
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a
-                  ><a href="#"><i class="fa fa-eye"></i></a>
+              </li>
+              <li>
+                <div class="product">
+                  <div class="pic-news">
+                    <a href="#"
+                      ><img
+                        src="https://vuoncayviet.com/data/items/1128/ngu-gia-bi-bonsai-vuoncayviet.jpg"
+                        alt="Cây Ngũ Gia Bì bonsai"
+                    /></a>
+                  </div>
+                  <h3>
+                    <a href="#">Cây Ngũ Gia Bì bonsai</a>
+                  </h3>
+                  <div class="price-product">240,000 đ</div>
+                  <div class="cart-product">
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a
+                    ><a href="#"><i class="fa fa-eye"></i></a>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <div class="pic-news">
-                  <a href="#"
-                    ><img
-                      src="https://vuoncayviet.com/data/items/895/mai-chi-thien-phong-thuy-de-ban.jpg"
-                      alt="Cây Mai Chỉ Thiên"
-                  /></a>
-                </div>
-                <h3>
-                  <a href="#">Cây Mai Chỉ Thiên</a>
-                </h3>
-                <div class="price-product">Liên hệ</div>
-                <div class="cart-product">
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a
-                  ><a href="#"><i class="fa fa-eye"></i></a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <div class="pic-news">
-                  <a href="#"
-                    ><img
-                      src="https://vuoncayviet.com/data/items/1128/ngu-gia-bi-bonsai-vuoncayviet.jpg"
-                      alt="Cây Ngũ Gia Bì bonsai"
-                  /></a>
-                </div>
-                <h3>
-                  <a href="#">Cây Ngũ Gia Bì bonsai</a>
-                </h3>
-                <div class="price-product">240,000 đ</div>
-                <div class="cart-product">
-                  <a href="#"><i class="fa fa-shopping-cart"></i></a
-                  ><a href="#"><i class="fa fa-eye"></i></a>
-                </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
 let Api = "http://localhost:3000";
 export default {
   data() {
     return {
-      list: {},
-      counter: 1,
-      class: "",
+      list: "",
+      quantity: 1,
+      currentIndex: 0,
     };
   },
   //get Api
-  mounted() {
-    fetch(Api + "/products?id=" + this.$route.params.id)
-      .then((response) => response.json())
-      .then((data) => (this.list = data));
+  created() {
+    this.getData();
   },
-  methods: {},
-  watch: {
-    list(newVal) {
-      if (newVal[0].class) {
-        fetch(Api + "/class?id=" + newVal[0].class)
-          .then((response) => response.json())
-          .then((data) => (this.class = data));
+  methods: {
+    click(img) {
+      console.log(img, "img");
+    },
+    // Lấy giữu liệu từ API
+    async getData() {
+      try {
+        const response = await axios.get(
+          Api + "/products?id=" + this.$route.params.id
+        );
+        this.list = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    //image slide
+    goToSlideIndex(index) {
+      this.currentIndex = index;
+    },
+    // up, dow
+    onClickPlus() {
+      this.quantity += 1;
+    },
+
+    onClickMinus() {
+      if (this.quantity > 1) {
+        this.quantity = this.quantity - 1;
       }
     },
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .content-page {
-  display: flex;
   width: 100%;
   float: left;
   background: #fff;
@@ -326,8 +322,12 @@ export default {
   width: 28%;
   float: left;
   img {
+    //chỉnh sửa
     width: 100%;
     border: 1px solid #ccc;
+    &:hover {
+      border: 1px solid #f28902;
+    }
   }
 }
 .intro-product {
@@ -345,15 +345,30 @@ export default {
 }
 .flex-active-slide {
   width: 308px;
+  //chinh sua
   display: block;
 }
 .flexslider.slider-carousel ul.slides li.flex-active-slide {
   opacity: 1;
-  width: 200%;
-  border: 1px solid #f28902;
+  //chỉnh sửa
+  // width: 200%;
+  padding-left: 5px;
   transition-duration: 0s;
   transform: translate3d(0px, 0px, 0px);
 }
+::v-deep .slides {
+  display: flex;
+  padding: 0 5px;
+  height: 5rem;
+  .v-img__img {
+    height: auto;
+  }
+  .v-btn--icon.v-btn--density-default {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
 .ntv-price p {
   margin-top: 10px;
   width: 100%;
@@ -362,6 +377,11 @@ export default {
   text-align: justify;
   display: flex;
   align-items: center;
+}
+.ntv-price strong {
+  color: #666;
+  float: left;
+  margin-right: 4px;
 }
 .ntv-price .price-bf {
   font-size: 14px;
@@ -513,7 +533,6 @@ export default {
     max-width: 100%;
     height: auto;
     text-align: center;
-    padding: 20px 0;
   }
   p {
     margin-bottom: 0;
